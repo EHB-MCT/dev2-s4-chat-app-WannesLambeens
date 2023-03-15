@@ -20,12 +20,13 @@ const chat = {
       messages.forEach(messageAmount => {
 
         const date = new Date(messageAmount.created_at);
-
+        const hours = date.getHours();
+        const minutes = String(date.getMinutes()).padStart(2, "0");
         document.querySelector('#messageContainer').insertAdjacentHTML("beforeend", `        
         <div class="messageItem">
             <div class="header">
                 <span class="author">${messageAmount.author}</span>
-                <span class="time">${date}</span>
+                <span class="time">${hours}:${minutes}</span>
             </div>
             <p class="message">
             ${messageAmount.message}
